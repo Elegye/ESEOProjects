@@ -1,6 +1,6 @@
 # Installation
 
-Il faut commencer par cloner localement le dépôt : `git clone adresseDuDépôt && cd ESEOProjects`
+Il faut commencer par cloner localement le dépôt : `git clone https://github.com/ESEOProjects/ESEOProjects.git && cd ESEOProjects`
 Ensuite, avec Composer, il faut installer les dépendances : `composer install --dev`
 
 Après s'être assuré que votre serveur MySQL local fonctionne, il faut éditer le fichier .env.local en modifiant la ligne DATABASE_URL avec vos données locales.
@@ -22,4 +22,4 @@ Pour exécuter les tests : `php bin/phpunit`. De cette manière tous les tests s
 Plus d'informations dans la documentation Symfony : [Consulter la documentation](https://symfony.com/doc/current/testing.html)
 
 # Contribution
-TEST-DRIVEN DEVELOPMENT !!!
+TBD
