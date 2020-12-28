@@ -9,7 +9,7 @@ Il faut à présent dire à Doctrine de créer la base de données et les tables
 `php bin/console doctrine:database:create && php bin/console doctrine:schema:create`
 
 Si une erreur est survenue, faites-nous signe.
-Test
+
 ## Data Fixtures
 Pour faciliter le développement, des fixtures ont été créées : elles permettent de créer des données de test rapidement (et les mêmes partout).
 Pour les charger, il faut toujours utiliser la console Symfony fournie : `php bin/console doctrine:fixtures:load`
