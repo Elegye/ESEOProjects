@@ -16,6 +16,8 @@ Pour les charger, il faut toujours utiliser la console Symfony fournie : `php bi
 
 A présent tout est bon !
 
+Le serveur peut être démarré avec la commande `symfony serve`
+
 ## Exécuter les tests
 Symfony repose nativement sur PHPUnit. Nous allons donc utiliser cet outil, suffisant pour le travail demandé.
 Pour exécuter les tests : `php bin/phpunit`. De cette manière tous les tests seront exécutés.
