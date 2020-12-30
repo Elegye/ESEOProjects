@@ -1,3 +1,5 @@
+![PHP Integration](https://github.com/ESEO-Projects/ESEOProjects/workflows/PHP%20Integration/badge.svg?branch=master)
+
 # Installation
 
 Il faut commencer par cloner localement le dépôt : `git clone https://github.com/ESEOProjects/ESEOProjects.git && cd ESEOProjects`
