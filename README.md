@@ -1,4 +1,4 @@
-![PHP Integration](https://github.com/ESEO-Projects/ESEOProjects/workflows/PHP%20Integration/badge.svg?branch=master)
+![Continuous Integration](https://github.com/ESEO-Projects/ESEOProjects/workflows/PHP%20Integration/badge.svg?branch=master)
 
 # Installation
 
