@@ -1,4 +1,4 @@
-name: PHP Integration
+name: CI
 
 on:
   push:
@@ -32,6 +32,9 @@ jobs:
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
-
+    - name: Install Doctrine fixtures
+      id: doctrine-fixtures
+      run: php bin/console doctrine:fixtures:load
+      
     - name: Run test suite
       run: php bin/phpunit
