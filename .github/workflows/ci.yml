@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: ['7.3', '7.4']
+        php-versions: ['7.4']
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -52,6 +52,6 @@ jobs:
           php bin/console doctrine:migrations:migrate || echo "No migrations found or migration failed"
           php bin/console doctine:fixtures:load || echo "No fixtures found or loading failed !"
         env:
-          DATABASE_URL: mysql://root:symfony@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/symfony
+          DATABASE_URL: mysql://root:symfony@localhost:${{ job.services.mysql.ports['3306'] }}/symfony
       - name: Run Tests
         run: php bin/phpunit --coverage-text
