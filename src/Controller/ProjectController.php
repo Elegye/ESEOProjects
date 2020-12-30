@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/project")
@@ -16,6 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProjectController extends AbstractController
 {
     /**
+     * Liste de tous les projets de la plateforme.
      * @Route("/", name="project_index", methods={"GET"})
      */
     public function index(ProjectRepository $projectRepository): Response
@@ -26,7 +28,9 @@ class ProjectController extends AbstractController
     }
 
     /**
+     * Un nouveau projet peut être créé par un étudiant.
      * @Route("/new", name="project_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_STUDENT")
      */
     public function new(Request $request): Response
     {
@@ -60,9 +64,11 @@ class ProjectController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="project_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_STUDENT")
      */
     public function edit(Request $request, Project $project): Response
     {
+        $this->denyAccessUnlessGranted('PROJECT_EDIT', $project);
         $form = $this->createForm(ProjectType::class, $project);
         $form->handleRequest($request);
 
@@ -80,9 +86,11 @@ class ProjectController extends AbstractController
 
     /**
      * @Route("/{id}", name="project_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_STUDENT")
      */
     public function delete(Request $request, Project $project): Response
     {
+        $this->denyAccessUnlessGranted('PROJECT_DELETE', $project);
         if ($this->isCsrfTokenValid('delete'.$project->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($project);
@@ -91,4 +99,5 @@ class ProjectController extends AbstractController
 
         return $this->redirectToRoute('project_index');
     }
+
 }
