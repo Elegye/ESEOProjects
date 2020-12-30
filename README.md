@@ -16,12 +16,28 @@ Pour les charger, il faut toujours utiliser la console Symfony fournie : `php bi
 
 A présent tout est bon !
 
-Le serveur peut être démarré avec la commande `symfony serve`
+Le serveur peut être démarré avec la commande `symfony serve`.
 
-## Exécuter les tests
+## Exécution des tests
 Symfony repose nativement sur PHPUnit. Nous allons donc utiliser cet outil, suffisant pour le travail demandé.
 Pour exécuter les tests : `php bin/phpunit`. De cette manière tous les tests seront exécutés.
 Plus d'informations dans la documentation Symfony : [Consulter la documentation](https://symfony.com/doc/current/testing.html)
 
-# Contribution
-TBD
+# Architecture
+
+L'application respecte l'architecture MVC. L'architecure des fichiers est la suivante:
+```
+/bin => Console Symfony et PHPUnit
+/config => Dossier de configuration (fichiers au format YAML)
+/migrations => Migrations Doctrine. A vérifier avant chaque migration !
+/public => Dossier d'entrée de l'application. Y mettre toutes les ressources (JS, CSS, images ...)
+/src =>
+    /Controller => ControlLers de l'application.
+    /Entity => Entités doctrine.
+    /Form => Formulaires Symfony.
+    /Repository => Accès aux données de la BDD.
+    /Security => Comme son nom l'indique.
+    /DataFixtures => Données factices de l'app pour le développement.
+/templates => Templates Twig. Chaque sous-dossier correspond à un controller.
+/tests => Contient les tests PHPUnit à exécuter.
+```

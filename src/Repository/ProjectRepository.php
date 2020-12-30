@@ -37,14 +37,17 @@ class ProjectRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Project
+
+     */
+    public function findOneByUser($user, int $maxResults = 10): array
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
+            ->innerJoin('p.users', 'u')
+            ->andWhere('u.id = :user')
+            ->setParameter('user', $user)
+            ->setMaxResults($maxResults)
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getResult()
         ;
     }
-    */
 }

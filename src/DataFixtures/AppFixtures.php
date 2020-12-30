@@ -78,7 +78,8 @@ class AppFixtures extends Fixture
         $project1->setDescription("Grâce à mon détecteur de baillement, je pense enfin à mettre ma main devant ma bouche.");
         $project1->setCost(123.45);
         $project1->setViews(1055);
-        $project1->addUser($student1)->addUser($student2);
+        $project1->addUser($student1);
+        $project1->addUser($student2);
         $project1->setPromotion($noether);
         $project1->setGithubUrl("https://www.github.com");
         $manager->persist($project1);
@@ -88,7 +89,8 @@ class AppFixtures extends Fixture
         $project2->setDescription("J'étais vraiment très ambitieux au départ, mais ma procrastination m'a rattrapé à vitesse grand-V.\n Du coup j'ai utilisé mon abonnement Amazon Prime et fait acheminer jusqu'au pas de ma porte une superbe voiture télécommandée. Passé la phase de montage et le copier/coller du code, c'était nickel. \n J'ai pu continuer ma série Netflix.");
         $project2->setCost(55.67);
         $project2->setViews(3567);
-        $project2->addUser($student3)->addUser($student4);
+        $project2->addUser($student3);
+        $project2->addUser($student4);
         $project2->setPromotion($langevin);
         $project2->setGithubUrl("https://www.github.com");
         $manager->persist($project2);
